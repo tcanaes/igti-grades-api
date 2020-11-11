@@ -9,5 +9,11 @@ app.get('/grade/:id', controller.findOne);
 app.put('/grade/:id', controller.update);
 app.delete('/grade/:id', controller.remove);
 app.delete('/grade/', controller.removeAll);
+app.get('/', (req, res, next) => {
+  res.status(404).json({
+    status: 'FAIL',
+    message: 'Rota indisponível'
+  });
+});
 
 export { app as gradeRouter };
